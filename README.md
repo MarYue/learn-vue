@@ -7,5 +7,5 @@
 3. 跑马灯练习
 4. v-model指令实现数据的双向绑定
 5. vue中的样式
-- class
-- style
+    - class
+    - style
