@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <!-- <script src="./lib/echarts.min(2).js"></script> -->
+    <!-- <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts-all-3.js"></script> -->
+</head>
+
+<body>
+    <div id="app">
+        <h2>My ToDo-List</h2>
+        <h3>添加小目标</h3>
+        <div class="list">
+            <!-- v-model绑定添加任务，@keyup.13 添加键盘回车事件 -->
+            <input type="text" class="inputCont" placeholder="输入内容后，按回车键添加哦~" v-model="addText" @keyup.13="addList">
+            <p>共有{{ proList.length }}个目标，{{ noend === 0? '全部完成了' : '已完成' + (proList.length - noend) + '，还有' + noend + '条未完成' }}
+            </p>
+            <p>
+                <input type="radio" name="chooseType" checked="true" @click="chooseList(1)"><label>所有目标</label>
+                <input type="radio" name="chooseType" @click="chooseList(2)"><label>已完成</label>
+                <input type="radio" name="chooseType" @click="chooseList(3)"><label>未完成</label>
+            </p>
+        </div>
+        <ul>
+            <!-- 用 v-for 循环渲染 遍历 proList -->
+            <!-- 用 v-for 循环遍历 newList （储存proList，列表更新也用这个。proList存储了所有种类的任务） -->
+            <li class="li1" v-for="(item,index) in newList" :class="{'editing':curIndex===index}">
+                <div>
+                    <!-- 通过status的值来绑定属性更改样式，同时status可以用来判断任务的分类 -->
+                    <span class="type-span" @click="changeType(index)"
+                        :class="{'status-end':item.status}"></span>
+                    <span @dbclick="curIndex=index">{{ item.name }}</span>
+                    <span class="delete" @click="deleteList(index)">X</span>
+                </div>
+                <input type="text" class="text2" v-model="item.name" @keyup.esc="cancleEdit(item)" @blur="edited"
+                    @focus="editBefore(item.name)" @keyup.enter="edited">
+            </li>
+            <!-- <li>
+                <div>
+                    <span class="type-span"></span>
+                    <span>QHWeb</span>
+                    <span class="delete">X</span>
+                </div>
+            </li> -->
+        </ul>
+        <!-- <div id="chart"></div> -->
+    </div>
+</body>
+<script src="lib/vue-2.4.0.js"></script>
+<script src="main.js" type="model"></script>
+
+</html>

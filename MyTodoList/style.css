@@ -1,0 +1,90 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+body {
+    font-family: "微软雅黑";
+    font-size: 14px;
+}
+.hidden {
+    display: none;
+}
+#app {
+    width: 800px;
+    margin: 0 auto;
+    /* border: 1px dotted steelblue;
+    border-radius: 15px; */
+}
+h2, h3 {
+    padding-top: 10px;
+}
+.list .inputCont {
+    width: 100%;
+    line-height: 25px;
+    margin: 10px 0;
+    padding-left: 5px;
+    border: 1px solid #1a8fb3;
+}
+
+p {
+    line-height: 30px;
+}
+
+label {
+    margin-left: 5px;
+}
+
+li {
+    list-style-type: none;
+    line-height: 40px;
+    position: relative;
+    border: 1px solid transparent;
+    padding: 0 20px;
+}
+li div {
+    display: block;
+}
+li .editing div{
+    display: none;
+}
+li .text2 {
+    height: 40px;
+    padding-left: 10px;
+    box-sizing: border-box;
+    margin-left: 10px;
+    width: 80%;
+    display: none;
+}
+li .editing .text2 {
+    display: block;
+}
+.li1 .type-span {
+    display: block;
+    width: 10px;
+    height: 10px;
+    background: #ccc;
+    margin: 14px 10px 0 0;
+    float: left;
+}
+.li1 .delete {
+    display: block;
+    position: absolute;
+    color: #ec370a;
+    font-size: 20px;
+    right: 20px;
+    top: 0;
+    height: 20px;
+    width: 20px;
+    cursor: pointer;
+}
+.li1 .status-end {
+    background: #1a8fb3;
+}
+.li1:hover {
+    border: 1px solid #f7e605;
+}
+#chart {
+    width: 600px;
+    height: 250px;
+    background-color: pink;
+}
